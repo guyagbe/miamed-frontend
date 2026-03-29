@@ -1,0 +1,137 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --teal:       #0891b2;
+  --teal-dark:  #0e7490;
+  --teal-light: #cffafe;
+  --teal-bg:    #ecfeff;
+  --coral:      #f97316;
+  --navy:       #0f172a;
+  --slate:      #475569;
+  --muted:      #94a3b8;
+  --surface:    #f8fafc;
+  --white:      #ffffff;
+  --border:     #e2e8f0;
+  --danger:     #ef4444;
+  --danger-bg:  #fef2f2;
+  --success:    #22c55e;
+  --success-bg: #f0fdf4;
+  --radius:     14px;
+  --radius-sm:  8px;
+  --font:       'DM Sans', sans-serif;
+  --serif:      'Fraunces', serif;
+  --shadow:     0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg:  0 12px 48px rgba(0,0,0,0.12);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--surface);
+  color: var(--navy);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--font); cursor: pointer; }
+input, select, textarea { font-family: var(--font); }
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px; border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 500; border: none;
+  transition: all 0.18s; white-space: nowrap;
+}
+.btn-primary { background: var(--teal); color: #fff; }
+.btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.btn-outline { background: #fff; color: var(--navy); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+.btn-danger { background: var(--danger-bg); color: var(--danger); border: 1px solid #fecaca; }
+.btn-danger:hover { background: #fee2e2; }
+.btn-lg { padding: 13px 28px; font-size: 15px; border-radius: var(--radius); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* ── Cards ───────────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+/* ── Form elements ───────────────────────────────────────── */
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+.form-group label { font-size: 13px; font-weight: 500; color: var(--slate); }
+.form-control {
+  width: 100%; padding: 10px 14px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  font-size: 14px; color: var(--navy); background: #fff;
+  transition: border-color 0.15s;
+  outline: none;
+}
+.form-control:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(8,145,178,0.1); }
+
+/* ── Badge / chip ────────────────────────────────────────── */
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px; border-radius: 50px;
+  font-size: 11px; font-weight: 500;
+}
+.badge-teal   { background: var(--teal-bg); color: var(--teal-dark); border: 1px solid var(--teal-light); }
+.badge-green  { background: var(--success-bg); color: #15803d; border: 1px solid #bbf7d0; }
+.badge-coral  { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.badge-gray   { background: var(--surface); color: var(--slate); border: 1px solid var(--border); }
+
+/* ── Stars ───────────────────────────────────────────────── */
+.stars { color: #f59e0b; letter-spacing: 1px; }
+
+/* ── Spinner ─────────────────────────────────────────────── */
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 3rem auto; display: block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Alert ───────────────────────────────────────────────── */
+.alert { padding: 12px 16px; border-radius: var(--radius-sm); font-size: 14px; margin-bottom: 1rem; }
+.alert-error   { background: var(--danger-bg); color: #b91c1c; border: 1px solid #fecaca; }
+.alert-success { background: var(--success-bg); color: #15803d; border: 1px solid #bbf7d0; }
+
+/* ── Page wrapper ────────────────────────────────────────── */
+.page { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+.page-narrow { max-width: 520px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+/* ── Section title ───────────────────────────────────────── */
+.section-title { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--navy); }
+.section-sub   { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+/* ── Avatar ──────────────────────────────────────────────── */
+.avatar {
+  border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; font-family: var(--serif);
+  font-weight: 600; color: #fff; flex-shrink: 0;
+}
+
+/* ── Slot button ─────────────────────────────────────────── */
+.slot-btn {
+  background: var(--teal-bg); border: 1px solid var(--teal-light);
+  color: var(--teal-dark); border-radius: var(--radius-sm);
+  padding: 7px 0; font-size: 12px; font-weight: 500;
+  cursor: pointer; text-align: center; transition: all 0.15s;
+  width: 100%;
+}
+.slot-btn:hover, .slot-btn.selected { background: var(--teal); color: #fff; border-color: var(--teal); }
+.slot-btn.unavail { background: var(--surface); border-color: var(--border); color: var(--muted); cursor: not-allowed; }
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.3s ease; }
